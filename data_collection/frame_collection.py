@@ -10,10 +10,10 @@ import pandas as pd
 from collections import deque
 from matplotlib import pyplot as plt
 
-measure_num = 550
+measure_num = 128
 frame_size = 65 * 4 * 2 + 8 * 4
 Anchor = UWBSensorInterface('Anchor', frame_size=frame_size)
-Anchor.connect_virtual_port('COM32')
+Anchor.connect_virtual_port('COM21')
 
 data_buffer = []
 
@@ -40,4 +40,4 @@ if __name__ == '__main__':
     plt.show()
 
     df = pd.DataFrame(data=data_buffer, columns=["real", "img", "mag", "time_stamp", "tof", "rsl", "fsl"])
-    df.to_csv('5ft_new.csv')
+    df.to_csv('test_paper.csv')
